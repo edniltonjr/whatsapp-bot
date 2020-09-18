@@ -12,18 +12,17 @@ export default async (msg: IEconomia) => {
 
   const options: { method: string; url: string } = {
     method: "GET",
-    url: "http://177.10.200.16:3050/contagemWS2",
+    url: "http://177.10.200.16:3050/contagemWS",
   };
 
   
 
 
   const type = (endereco: {
-    id?: string;
-    campanha?: string;
-    custo_voip?: string;
+    soma?: string;
+    horario?: string;
   }) => {
-    return `* Campanha: (${endereco.campanha})*`;
+    return `* Campanha: (${endereco.soma})*`;
   };
 
   request(options, async (error: any, response: any, body: any) => {
@@ -33,29 +32,22 @@ export default async (msg: IEconomia) => {
 
       const array = JSON.parse(body);
 
+      
+
+
+
+    
  
+        msg.reply(
+
+        `Total WS1:${array.contagem[0]['count(*)']} \n` 
+      
         
-
-          msg.reply(
-
-            `Total WS2:${array.contagem[0]['count(*)']} \n` 
-          
-            
-         )
- 
+     )
 
      
 
   
-      
-
-    
-
-    const { campanha } = JSON.parse(body);
-
-    console.log('ss')
-
-
 
     
 
